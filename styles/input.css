@@ -1,1 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap");
 @import "tailwindcss";
+
+@theme {
+	/* meet color palette */
+	--color-meet-cyan-600: #4d96a9;
+	--color-meet-cyan-300: #8fe3f9;
+
+	--color-meet-purple-600: #855fb1;
+	--color-meet-purple-300: #d9b8ff;
+
+	--color-meet-slate-900: #28283d;
+	--color-meet-slate-600: #87879d;
+	--color-meet-slate-300: #d1d1df;
+
+	--color-meet-white: #fafafa;
+
+	/* meet font */
+	--font-redhat: "Red Hat Display", sans-serif;
+
+	/* meet counter */
+	--counter-name: meet-counter;
+}
+
+@layer components {
+	/* meet mini-components (utility alias) */
+	.meet-text-present-1 {
+		@apply text-[2.5rem] leading-[110%] font-black;
+
+		@variant md {
+			@apply text-5xl;
+		}
+
+		@variant lg {
+			@apply text-[4rem];
+		}
+	}
+	.meet-text-present-2 {
+		@apply text-[2rem] leading-[110%] font-black;
+
+		@variant md {
+			@apply text-4xl;
+		}
+
+		@variant lg {
+			@apply text-[2.5rem];
+		}
+	}
+	.meet-text-present-3 {
+		@apply text-xs leading-[110%] font-black;
+
+		@variant md {
+			@apply text-sm;
+		}
+
+		@variant lg {
+			@apply text-base;
+		}
+	}
+	.meet-text-present-4 {
+		@apply text-base leading-[150%] font-medium;
+
+		@variant lg {
+			@apply text-lg;
+		}
+	}
+	.meet-text-present-5 {
+		@apply text-base leading-[150%] font-black;
+	}
+
+	/* meet btn's */
+	.meet-btn-primary {
+		@apply bg-meet-cyan-600 text-meet-white flex items-center justify-center gap-x-1 rounded-full px-10 py-4 leading-[150%] font-black transition;
+
+		span {
+			@apply text-meet-cyan-300;
+		}
+
+		@variant hover {
+			@apply cursor-pointer bg-[#71C0D4];
+		}
+	}
+	.meet-btn-secondary {
+		@apply bg-meet-purple-600 text-meet-white flex items-center justify-center gap-x-1 rounded-full px-10 py-4 leading-[150%] font-black transition;
+
+		span {
+			@apply text-meet-purple-300;
+		}
+
+		@variant hover {
+			@apply cursor-pointer bg-[#B18BDD];
+		}
+	}
+
+	/* meet milestone */
+	.meet-flag {
+		--counter: var(--counter-name);
+
+		@apply flex w-fit flex-col items-center;
+
+		@variant * {
+			@variant first {
+				@apply bg-meet-slate-300 block h-20 w-px;
+			}
+
+			@variant last {
+				@apply border-meet-slate-300 bg-meet-white flex size-14 items-center justify-center rounded-full border;
+
+				@variant before {
+					@apply text-meet-slate-600 leading-[150%] font-black content-[counter(var(--counter),decimal-leading-zero)] [counter-increment:var(--counter)];
+				}
+			}
+		}
+	}
+}

@@ -1,4 +1,5 @@
 /*! tailwindcss v4.1.11 | MIT License | https://tailwindcss.com */
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap");
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -7,10 +8,34 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --text-8xl: 6rem;
-    --text-8xl--line-height: 1;
+    --spacing: 0.25rem;
+    --text-xs: 0.75rem;
+    --text-xs--line-height: calc(1 / 0.75);
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-base: 1rem;
+    --text-base--line-height: calc(1.5 / 1);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
+    --font-weight-medium: 500;
+    --font-weight-black: 900;
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --color-meet-cyan-600: #4d96a9;
+    --color-meet-cyan-300: #8fe3f9;
+    --color-meet-purple-600: #855fb1;
+    --color-meet-purple-300: #d9b8ff;
+    --color-meet-slate-600: #87879d;
+    --color-meet-slate-300: #d1d1df;
+    --color-meet-white: #fafafa;
+    --font-redhat: "Red Hat Display", sans-serif;
+    --counter-name: meet-counter;
   }
 }
 @layer base {
@@ -165,13 +190,167 @@
   .table {
     display: table;
   }
-  .text-8xl {
-    font-size: var(--text-8xl);
-    line-height: var(--tw-leading, var(--text-8xl--line-height));
-  }
   .outline {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
+  }
+}
+@layer components {
+  .meet-text-present-1 {
+    font-size: 2.5rem;
+    --tw-leading: 110%;
+    line-height: 110%;
+    --tw-font-weight: var(--font-weight-black);
+    font-weight: var(--font-weight-black);
+    @media (width >= 48rem) {
+      font-size: var(--text-5xl);
+      line-height: var(--tw-leading, var(--text-5xl--line-height));
+    }
+    @media (width >= 64rem) {
+      font-size: 4rem;
+    }
+  }
+  .meet-text-present-2 {
+    font-size: 2rem;
+    --tw-leading: 110%;
+    line-height: 110%;
+    --tw-font-weight: var(--font-weight-black);
+    font-weight: var(--font-weight-black);
+    @media (width >= 48rem) {
+      font-size: var(--text-4xl);
+      line-height: var(--tw-leading, var(--text-4xl--line-height));
+    }
+    @media (width >= 64rem) {
+      font-size: 2.5rem;
+    }
+  }
+  .meet-text-present-3 {
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+    --tw-leading: 110%;
+    line-height: 110%;
+    --tw-font-weight: var(--font-weight-black);
+    font-weight: var(--font-weight-black);
+    @media (width >= 48rem) {
+      font-size: var(--text-sm);
+      line-height: var(--tw-leading, var(--text-sm--line-height));
+    }
+    @media (width >= 64rem) {
+      font-size: var(--text-base);
+      line-height: var(--tw-leading, var(--text-base--line-height));
+    }
+  }
+  .meet-text-present-4 {
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+    --tw-leading: 150%;
+    line-height: 150%;
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+    @media (width >= 64rem) {
+      font-size: var(--text-lg);
+      line-height: var(--tw-leading, var(--text-lg--line-height));
+    }
+  }
+  .meet-text-present-5 {
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+    --tw-leading: 150%;
+    line-height: 150%;
+    --tw-font-weight: var(--font-weight-black);
+    font-weight: var(--font-weight-black);
+  }
+  .meet-btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: calc(var(--spacing) * 1);
+    border-radius: calc(infinity * 1px);
+    background-color: var(--color-meet-cyan-600);
+    padding-inline: calc(var(--spacing) * 10);
+    padding-block: calc(var(--spacing) * 4);
+    --tw-leading: 150%;
+    line-height: 150%;
+    --tw-font-weight: var(--font-weight-black);
+    font-weight: var(--font-weight-black);
+    color: var(--color-meet-white);
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+    span {
+      color: var(--color-meet-cyan-300);
+    }
+    &:hover {
+      @media (hover: hover) {
+        cursor: pointer;
+        background-color: #71C0D4;
+      }
+    }
+  }
+  .meet-btn-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: calc(var(--spacing) * 1);
+    border-radius: calc(infinity * 1px);
+    background-color: var(--color-meet-purple-600);
+    padding-inline: calc(var(--spacing) * 10);
+    padding-block: calc(var(--spacing) * 4);
+    --tw-leading: 150%;
+    line-height: 150%;
+    --tw-font-weight: var(--font-weight-black);
+    font-weight: var(--font-weight-black);
+    color: var(--color-meet-white);
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+    span {
+      color: var(--color-meet-purple-300);
+    }
+    &:hover {
+      @media (hover: hover) {
+        cursor: pointer;
+        background-color: #B18BDD;
+      }
+    }
+  }
+  .meet-flag {
+    --counter: var(--counter-name);
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+    align-items: center;
+    :is(& > *) {
+      &:first-child {
+        display: block;
+        height: calc(var(--spacing) * 20);
+        width: 1px;
+        background-color: var(--color-meet-slate-300);
+      }
+      &:last-child {
+        display: flex;
+        width: calc(var(--spacing) * 14);
+        height: calc(var(--spacing) * 14);
+        align-items: center;
+        justify-content: center;
+        border-radius: calc(infinity * 1px);
+        border-style: var(--tw-border-style);
+        border-width: 1px;
+        border-color: var(--color-meet-slate-300);
+        background-color: var(--color-meet-white);
+        &::before {
+          content: var(--tw-content);
+          --tw-leading: 150%;
+          line-height: 150%;
+          --tw-font-weight: var(--font-weight-black);
+          font-weight: var(--font-weight-black);
+          color: var(--color-meet-slate-600);
+          --tw-content: counter(var(--counter),decimal-leading-zero);
+          content: var(--tw-content);
+          counter-increment: var(--counter);
+        }
+      }
+    }
   }
 }
 @property --tw-outline-style {
@@ -179,10 +358,32 @@
   inherits: false;
   initial-value: solid;
 }
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-content {
+  syntax: "*";
+  initial-value: "";
+  inherits: false;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
       --tw-outline-style: solid;
+      --tw-leading: initial;
+      --tw-font-weight: initial;
+      --tw-border-style: solid;
+      --tw-content: "";
     }
   }
 }
