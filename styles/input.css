@@ -23,6 +23,11 @@
 }
 
 @layer components {
+	/* meet grid container */
+	.meet-grid {
+		@apply grid grid-cols-[1fr_repeat(4,minmax(56px,64px))_1fr] gap-x-4 md:grid-cols-[1fr_repeat(8,64px)_1fr] md:gap-x-6 xl:grid-cols-[1fr_repeat(12,64px)_1fr] xl:gap-x-8;
+	}
+
 	/* meet mini-components (utility alias) */
 	.meet-text-present-1 {
 		@apply text-[2.5rem] leading-[110%] font-black;
@@ -31,7 +36,7 @@
 			@apply text-5xl;
 		}
 
-		@variant lg {
+		@variant xl {
 			@apply text-[4rem];
 		}
 	}
@@ -42,25 +47,25 @@
 			@apply text-4xl;
 		}
 
-		@variant lg {
+		@variant xl {
 			@apply text-[2.5rem];
 		}
 	}
 	.meet-text-present-3 {
-		@apply text-xs leading-[110%] font-black;
+		@apply text-xs leading-[110%] font-black tracking-[0.25em];
 
 		@variant md {
 			@apply text-sm;
 		}
 
-		@variant lg {
+		@variant xl {
 			@apply text-base;
 		}
 	}
 	.meet-text-present-4 {
 		@apply text-base leading-[150%] font-medium;
 
-		@variant lg {
+		@variant xl {
 			@apply text-lg;
 		}
 	}
@@ -96,7 +101,7 @@
 	.meet-flag {
 		--counter: var(--counter-name);
 
-		@apply flex w-fit flex-col items-center;
+		@apply flex flex-col items-center;
 
 		@variant * {
 			@variant first {
